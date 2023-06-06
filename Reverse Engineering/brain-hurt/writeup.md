@@ -4,7 +4,7 @@ Challenge description: Rumor has it Godzilla had a stroke trying to read the cod
 
 To solve this problem we are given source code to what seems to be an encryption program and checker (as shown below).
 
-```
+```python
 import sys
 
 def validate_flag(flag):
@@ -62,4 +62,31 @@ There is only one main feature we need to reverse. That being the `chr((ord(c) ^
 
 We could make a simple brute force program to compare the ord of every character of ciphertext `ZT_YE\\0|akaY.LaLx0,aQR{"C` to a number in range from 0 to 1000. If it matches, we can use that number. If not, we move on. However, if in the case the character is not standard plaintext (below ord 33), we add 95 to it because adding 95 will still make the modulus work, and give us a plaintext character at the same time.
 
+```python
+flag=[]
+lst=[]
+next=[]
+ciphertext='ZT_YE\\0|akaY.LaLx0,aQR{"C'
+for jk in ciphertext:
+  next.append(jk)
+for i in next:
+  for x in range(0, 1000):
+    result = ((x ^ 0xFF)%95 + 32)
+    if result == ord(i):
+        lst.append(str(x))
+        break
+for i in lst:
+  if int(i) < 33:
+    flag.append(chr(int(i)+95))
+  else:
+    flag.append(chr(int(i)))
+print("".join(flag))
+```
 
+## Testing ##
+
+As you can see, when we run the code, we can get the flag.
+
+![image](file:///C:/Users/shuba/Pictures/Screenshots/Screenshot%202023-06-06%20133339.png)
+
+## Math Explanation ##
