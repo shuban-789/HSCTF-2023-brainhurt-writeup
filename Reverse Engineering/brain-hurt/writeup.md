@@ -2,7 +2,7 @@
 
 Challenge description: Rumor has it Godzilla had a stroke trying to read the code
 
-To solve this problem we are given source code to what seems to be an encryption program and checker (as shwon below).
+To solve this problem we are given source code to what seems to be an encryption program and checker (as shown below).
 
 ```
 import sys
@@ -53,4 +53,13 @@ Function encode:
 Function main:
   (simple checker program)
 ```
-  
+
+### Key Features to Reverse ###
+
+There is only one main feature we need to reverse. That being the `chr((ord(c) ^ 0xFF) % 95 + 32)`. We first need to understand what ord and chr do. Ord takes in a character and returns its unicode, chr takes in unicode, and returns a character. Everything in our algorithm is pretty much reversible, except modulus. However, we could brute force this.
+
+## Solve Algorithm ##
+
+We could make a simple brute force program to compare the ord of every character of ciphertext `ZT_YE\\0|akaY.LaLx0,aQR{"C` to a number in range from 0 to 1000. If it matches, we can use that number. If not, we move on. However, if in the case the character is not standard plaintext (below ord 33), we add 95 to it because adding 95 will still make the modulus work, and give us a plaintext character at the same time.
+
+
