@@ -87,6 +87,6 @@ print("".join(flag))
 
 As you can see, when we run the code, we can get the flag.
 
-![image](file:///C:/Users/shuba/Pictures/Screenshots/Screenshot%202023-06-06%20133339.png)
+![image(https://cdn.discordapp.com/attachments/803021452797411348/1117198364572930151/image.png)
 
 ## Math Explanation ##
