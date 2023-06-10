@@ -90,3 +90,5 @@ As you can see, when we run the code, we can get the flag.
 ![image](https://cdn.discordapp.com/attachments/803021452797411348/1117198364572930151/image.png)
 
 ## Simple Diagram ##
+
+![diagram](https://media.discordapp.net/attachments/803021452797411348/1117200594537549834/image.png?width=1361&height=671)
